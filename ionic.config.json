@@ -1,5 +1,7 @@
 {
   "name": "logic-loop",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
