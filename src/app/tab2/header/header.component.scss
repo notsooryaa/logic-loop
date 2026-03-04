@@ -1,0 +1,17 @@
+.black-header {
+  ion-toolbar {
+    --background: #000000;
+    --color: #ffffff;
+    --border-color: transparent;
+
+    &:first-of-type {
+      padding-top: var(--ion-safe-area-top, 0);
+      background: #000000;
+    }
+  }
+
+  ion-title {
+    --color: #ffffff;
+    color: #ffffff;
+  }
+}
