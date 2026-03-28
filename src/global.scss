@@ -36,3 +36,384 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+app-tab2 {
+	--page-background: #f5e8cf;
+	--surface: rgba(255, 250, 241, 0.9);
+	--shadow-soft: 0 18px 35px rgba(133, 102, 43, 0.12);
+	--ink-strong: #2d2a26;
+	--ink-soft: #6f6455;
+	--brand-blue: #3d4cb7;
+	--brand-red: #cb2d38;
+	--brand-green: #6a7c14;
+}
+
+app-tab2 .home-content {
+	--background: linear-gradient(180deg, #f8edd8 0%, #f4e7d0 58%, #efe1c6 100%);
+}
+
+app-tab2 .home-shell {
+	max-width: 430px;
+	margin: 0 auto;
+	padding: 8px 20px calc(116px + var(--ion-safe-area-bottom, 0px));
+	color: var(--ink-strong);
+}
+
+app-tab2 .page-hero {
+	padding-top: 8px;
+}
+
+app-tab2 .difficulty-pill,
+app-tab2 .author-pill,
+app-tab2 .community-card,
+app-tab2 .answer-section button {
+	display: inline-flex;
+	align-items: center;
+}
+
+app-tab2 .curator-line,
+app-tab2 .detail-value,
+app-tab2 .quote-text,
+app-tab2 .answer-section input,
+app-tab2 .riddle-card blockquote,
+app-tab2 .community-copy span {
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+app-tab2 .eyebrow {
+	margin: 0 0 8px;
+	color: var(--brand-blue);
+	font-size: 1rem;
+	font-weight: 800;
+	letter-spacing: 0.11em;
+}
+
+app-tab2 h1 {
+	margin: 0;
+	font-size: clamp(2.7rem, 8vw, 3.4rem);
+	line-height: 0.96;
+	letter-spacing: -0.06em;
+	font-weight: 800;
+}
+
+app-tab2 .curator-line {
+	margin-top: 10px;
+	color: #877765;
+	font-size: 1.3rem;
+	font-style: italic;
+}
+
+app-tab2 .riddle-card,
+app-tab2 .detail-card,
+app-tab2 .community-card,
+app-tab2 .answer-section,
+app-tab2 .quote-card {
+	background: var(--surface);
+	backdrop-filter: blur(10px);
+	box-shadow: var(--shadow-soft);
+}
+
+app-tab2 .riddle-card {
+	position: relative;
+	margin-top: 26px;
+	padding: 22px 20px 26px;
+	border-radius: 34px;
+	overflow: hidden;
+}
+
+app-tab2 .riddle-card::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle at 85% 86%, rgba(221, 130, 131, 0.18), transparent 16%),
+		linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+	pointer-events: none;
+}
+
+app-tab2 .card-topline,
+app-tab2 .card-footer,
+app-tab2 .detail-grid,
+app-tab2 .community-card,
+app-tab2 .answer-section,
+app-tab2 .community-copy {
+	display: flex;
+}
+
+app-tab2 .card-topline,
+app-tab2 .card-footer,
+app-tab2 .community-card {
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	z-index: 1;
+}
+
+app-tab2 .difficulty-pill {
+	padding: 8px 12px;
+	border-radius: 999px;
+	background: rgba(247, 216, 222, 0.7);
+	color: var(--brand-red);
+	font-size: 0.84rem;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+}
+
+app-tab2 .bookmark-button {
+	width: 36px;
+	height: 36px;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: var(--brand-blue);
+	font-size: 1.2rem;
+}
+
+app-tab2 .riddle-card blockquote {
+	position: relative;
+	z-index: 1;
+	margin: 28px 0 26px;
+	padding-left: 20px;
+	border-left: 4px solid var(--brand-red);
+	color: #35312e;
+	font-size: 2rem;
+	line-height: 1.55;
+	font-style: italic;
+}
+
+app-tab2 .author-pill {
+	gap: 8px;
+	padding: 11px 15px;
+	border-radius: 999px;
+	background: #e6dcc7;
+	color: #3d3022;
+	font-size: 0.95rem;
+	font-weight: 700;
+}
+
+app-tab2 .puzzle-glyph,
+app-tab2 .community-icon {
+	display: grid;
+	place-items: center;
+}
+
+app-tab2 .puzzle-glyph {
+	width: 54px;
+	height: 54px;
+	color: rgba(218, 166, 175, 0.45);
+	font-size: 2.4rem;
+}
+
+app-tab2 .detail-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+	margin-top: 18px;
+}
+
+app-tab2 .detail-card {
+	min-height: 144px;
+	padding: 18px;
+	border-radius: 28px;
+	background: rgba(246, 235, 214, 0.88);
+}
+
+app-tab2 .detail-icon {
+	color: var(--brand-blue);
+	font-size: 1.4rem;
+}
+
+app-tab2 .time-icon {
+	color: var(--brand-green);
+}
+
+app-tab2 .detail-label {
+	margin: 14px 0 8px;
+	color: var(--ink-soft);
+	font-size: 0.9rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+}
+
+app-tab2 .detail-value {
+	margin: 0;
+	color: #43362b;
+	font-size: 1.75rem;
+	line-height: 1.12;
+}
+
+app-tab2 .community-card {
+	width: 100%;
+	margin-top: 18px;
+	padding: 18px 20px;
+	border: 0;
+	border-radius: 26px;
+	color: inherit;
+	text-align: left;
+}
+
+app-tab2 .community-icon {
+	width: 42px;
+	height: 42px;
+	flex: 0 0 42px;
+	border-radius: 14px;
+	background: linear-gradient(180deg, #5963c8, #4952ae);
+	color: #f6efe2;
+	font-size: 1.2rem;
+	box-shadow: 0 10px 18px rgba(74, 82, 174, 0.28);
+}
+
+app-tab2 .community-copy {
+	min-width: 0;
+	flex: 1;
+	flex-direction: column;
+	gap: 4px;
+}
+
+app-tab2 .community-copy strong {
+	color: var(--brand-blue);
+	font-size: 1.3rem;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+}
+
+app-tab2 .community-copy span {
+	color: #81705d;
+	font-size: 1.12rem;
+	font-style: italic;
+}
+
+app-tab2 .community-arrow {
+	flex: 0 0 auto;
+	color: var(--brand-blue);
+	font-size: 1.4rem;
+}
+
+app-tab2 .answer-section {
+	align-items: center;
+	gap: 12px;
+	margin-top: 22px;
+	padding: 12px;
+	border-radius: 999px;
+}
+
+app-tab2 .answer-section input {
+	width: 100%;
+	min-width: 0;
+	border: 0;
+	background: transparent;
+	color: #51453c;
+	font-size: 1.18rem;
+	font-style: italic;
+	outline: none;
+}
+
+app-tab2 .answer-section input::placeholder {
+	color: #9d8d79;
+}
+
+app-tab2 .answer-section button {
+	justify-content: center;
+	padding: 16px 24px;
+	border: 0;
+	border-radius: 999px;
+	background: linear-gradient(135deg, #cf2d34, #fa6f67);
+	color: #fff9f2;
+	font-size: 0.96rem;
+	font-weight: 800;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	box-shadow: 0 10px 22px rgba(203, 45, 56, 0.28);
+}
+
+app-tab2 .attempt-note {
+	margin-top: 16px;
+	color: rgba(125, 110, 89, 0.68);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.28em;
+	text-align: center;
+}
+
+app-tab2 .quote-card {
+	position: relative;
+	min-height: 182px;
+	margin-top: 26px;
+	padding: 98px 22px 24px;
+	border-radius: 34px;
+	overflow: hidden;
+	background:
+		linear-gradient(180deg, rgba(149, 137, 123, 0.84), rgba(237, 223, 200, 0.92) 74%, rgba(245, 232, 207, 0.98)),
+		radial-gradient(circle at center top, rgba(255, 255, 255, 0.4), transparent 36%);
+}
+
+app-tab2 .portrait-glow {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.62), transparent 18%),
+		radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.34), transparent 28%),
+		radial-gradient(circle at 50% 12%, rgba(60, 58, 57, 0.58), transparent 30%);
+	filter: blur(2px);
+}
+
+app-tab2 .quote-copy {
+	position: relative;
+	z-index: 1;
+	max-width: 80%;
+}
+
+app-tab2 .quote-author {
+	margin: 0 0 6px;
+	color: var(--brand-red);
+	font-size: 0.95rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+app-tab2 .quote-text {
+	margin: 0;
+	color: #382d25;
+	font-size: 1.7rem;
+	line-height: 1.35;
+	font-style: italic;
+}
+
+app-tab2 .sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (max-width: 420px) {
+	app-tab2 .home-shell {
+		padding-inline: 18px;
+	}
+
+	app-tab2 .riddle-card blockquote {
+		font-size: 1.76rem;
+	}
+
+	app-tab2 .detail-value,
+	app-tab2 .quote-text {
+		font-size: 1.5rem;
+	}
+
+	app-tab2 .answer-section {
+		gap: 8px;
+		padding-right: 8px;
+	}
+
+	app-tab2 .answer-section button {
+		padding: 14px 18px;
+		font-size: 0.88rem;
+	}
+}

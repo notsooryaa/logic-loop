@@ -1,4 +1,81 @@
 <app-header></app-header>
-<ion-content [fullscreen]="true">
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="home-shell">
+    <section class="page-hero">
+      <p class="eyebrow">THE DAILY ENIGMA</p>
+      <h1>Volume #412</h1>
+      <p class="curator-line">Curated by the Curator of Curiosities</p>
+    </section>
+
+    <section class="riddle-card">
+      <div class="card-topline">
+        <span class="difficulty-pill">HARD</span>
+
+        <button aria-label="Save puzzle" class="bookmark-button" type="button">
+          <ion-icon aria-hidden="true" name="bookmark-outline"></ion-icon>
+        </button>
+      </div>
+
+      <blockquote>
+        "I have cities, but no houses. I have mountains, but no trees. I have water,
+        but no fish. What am I?"
+      </blockquote>
+
+      <div class="card-footer">
+        <span class="author-pill">
+          <ion-icon aria-hidden="true" name="bulb-outline"></ion-icon>
+          Reveal Hint (20 pts)
+        </span>
+
+        <div aria-hidden="true" class="puzzle-glyph">
+          <ion-icon name="extension-puzzle-outline"></ion-icon>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <article class="detail-card">
+        <ion-icon aria-hidden="true" class="detail-icon" name="color-palette-outline"></ion-icon>
+        <p class="detail-label">THEME</p>
+        <p class="detail-value">Cartography</p>
+      </article>
+
+      <article class="detail-card">
+        <ion-icon aria-hidden="true" class="detail-icon time-icon" name="timer-outline"></ion-icon>
+        <p class="detail-label">TIME LIMIT</p>
+        <p class="detail-value">No Limit</p>
+      </article>
+    </section>
+
+    <button class="community-card" type="button">
+      <span class="community-icon">
+        <ion-icon aria-hidden="true" name="bulb-outline"></ion-icon>
+      </span>
+
+      <span class="community-copy">
+        <strong>Expert Insight</strong>
+        <span>View how others solved this</span>
+      </span>
+
+      <ion-icon aria-hidden="true" class="community-arrow" name="arrow-forward"></ion-icon>
+    </button>
+
+    <section class="answer-section">
+      <label class="sr-only" for="answer-input">Answer</label>
+      <input id="answer-input" placeholder="Whisper your answer here" type="text" />
+      <button type="button">SUBMIT</button>
+    </section>
+
+    <p class="attempt-note">EACH ATTEMPT COSTS 5 LOOP TOKENS</p>
+
+    <section class="quote-card">
+      <div class="portrait-glow" aria-hidden="true"></div>
+
+      <div class="quote-copy">
+        <p class="quote-author">Inspiration</p>
+        <p class="quote-text">"Logic is the beginning of wisdom, not the end."</p>
+      </div>
+    </section>
+  </div>
 </ion-content>
