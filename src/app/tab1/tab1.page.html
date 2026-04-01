@@ -1,3 +1,75 @@
-<ion-content [fullscreen]="true">
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<app-header></app-header>
+
+<ion-content [fullscreen]="true" class="history-content">
+  <div class="history-shell">
+    <section class="history-hero">
+      <p class="history-eyebrow">ACADEMIC RECORD</p>
+      <h1>Mastery Archive</h1>
+      <p class="history-intro">Every solution is a thread in the grand tapestry of logic.</p>
+    </section>
+
+    <section class="history-score-card">
+      <div class="history-score-copy">
+        <p>MASTERY</p>
+        <strong>{{ mastery }}%</strong>
+      </div>
+
+      <ion-icon aria-hidden="true" class="history-score-glyph" name="extension-puzzle-outline"></ion-icon>
+    </section>
+
+    <section class="history-metric-grid">
+      <article class="history-metric-card">
+        <ion-icon aria-hidden="true" class="metric-icon metric-icon-blue" name="medal-outline"></ion-icon>
+        <p class="metric-label">BADGES</p>
+        <strong class="metric-value">{{ badges }}</strong>
+
+        <div class="metric-stack" aria-hidden="true">
+          <span><ion-icon name="flash-outline"></ion-icon></span>
+          <span><ion-icon name="sparkles-outline"></ion-icon></span>
+        </div>
+      </article>
+
+      <article class="history-metric-card">
+        <ion-icon aria-hidden="true" class="metric-icon metric-icon-green" name="timer-outline"></ion-icon>
+        <p class="metric-label">AVG TIME</p>
+        <strong class="metric-value">{{ averageTime }}</strong>
+        <p class="metric-note">{{ improvement }}</p>
+      </article>
+    </section>
+
+    <section class="history-list-heading">
+      <h2>Past Chronicles</h2>
+      <button type="button">View All</button>
+    </section>
+
+    <section class="history-list" aria-label="History list">
+      <article
+        *ngFor="let entry of historyEntries"
+        class="history-entry"
+        [class.history-entry-incomplete]="!entry.completed"
+      >
+        <div class="history-entry-icon" [attr.data-accent]="entry.accent">
+          <ion-icon aria-hidden="true" [name]="entry.titleIcon"></ion-icon>
+        </div>
+
+        <div class="history-entry-copy">
+          <div class="history-entry-topline">
+            <h3>{{ entry.title }}</h3>
+            <span>{{ entry.badgeText }}</span>
+          </div>
+
+          <p class="history-entry-duration">{{ entry.duration }}</p>
+          <p class="history-entry-difficulty">{{ entry.difficulty }}</p>
+        </div>
+
+        <div class="history-entry-status" [attr.data-complete]="entry.completed">
+          <ion-icon [name]="entry.completed ? 'checkmark' : 'star'"></ion-icon>
+        </div>
+      </article>
+    </section>
+
+    <p class="history-footer-quote">
+      Wisdom is not a destination, but a perpetual journey through the labyrinth of thought.
+    </p>
+  </div>
 </ion-content>
