@@ -1,17 +1,114 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="profile-content">
+  <div class="profile-shell">
+    <section class="profile-hero-card" aria-label="Scholar profile">
+      <div class="profile-card-glow" aria-hidden="true"></div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <div class="portrait-frame" aria-hidden="true">
+        <div class="portrait-shadow"></div>
+        <div class="portrait-card">
+          <div class="avatar-illustration">
+            <span class="avatar-hair"></span>
+            <span class="avatar-face"></span>
+            <span class="avatar-body"></span>
+            <span class="avatar-collar avatar-collar-left"></span>
+            <span class="avatar-collar avatar-collar-right"></span>
+            <span class="speech-bubble"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-copy">
+        <h1>{{ scholar }}</h1>
+        <p class="profile-title">{{ title }}</p>
+
+        <div class="profile-pill-row">
+          <span class="profile-pill profile-pill-level">
+            <ion-icon aria-hidden="true" name="school-outline"></ion-icon>
+            Level {{ level }}
+          </span>
+
+          <span class="profile-pill profile-pill-focus">
+            <ion-icon aria-hidden="true" name="leaf-outline"></ion-icon>
+            {{ focus }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="momentum-section">
+      <div class="section-heading">
+        <h2>Weekly Momentum</h2>
+      </div>
+
+      <div class="momentum-card">
+        <div class="momentum-chart" aria-label="Weekly momentum chart">
+          <div
+            *ngFor="let bar of momentumBars"
+            class="momentum-bar-wrap"
+            [class.is-today]="bar.isToday"
+          >
+            <span class="momentum-track"></span>
+            <span class="momentum-bar" [attr.data-accent]="bar.accent || 'neutral'" [style.height.%]="bar.value">
+              <ion-icon *ngIf="bar.isToday" aria-hidden="true" name="flash"></ion-icon>
+            </span>
+            <span class="momentum-day">{{ bar.day }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="achievement-section">
+      <div class="section-heading">
+        <h2>Mastery Badges</h2>
+        <button type="button">View All</button>
+      </div>
+
+      <div class="achievement-grid">
+        <article *ngFor="let achievement of achievements" class="achievement-card">
+          <span class="achievement-icon" [attr.data-accent]="achievement.accent">
+            <ion-icon aria-hidden="true" [name]="achievement.icon"></ion-icon>
+          </span>
+
+          <h3>{{ achievement.title }}</h3>
+          <p>{{ achievement.note }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mastery-card" aria-label="Overall mastery">
+      <div class="mastery-copy">
+        <span class="mastery-icon">
+          <ion-icon aria-hidden="true" name="star"></ion-icon>
+        </span>
+
+        <div>
+          <h3>Equilibrium</h3>
+          <p>Solve 50 logic grids</p>
+        </div>
+      </div>
+
+      <div class="mastery-ring" [style.--progress]="mastery">
+        <strong>{{ mastery }}%</strong>
+      </div>
+    </section>
+
+    <section class="streak-section">
+      <div class="section-heading">
+        <h2>Streak History</h2>
+      </div>
+
+      <div class="streak-list">
+        <article *ngFor="let entry of streakHistory" class="streak-entry">
+          <span class="streak-entry-icon" [attr.data-accent]="entry.accent">
+            <ion-icon aria-hidden="true" [name]="entry.icon"></ion-icon>
+          </span>
+
+          <span class="streak-entry-label">{{ entry.label }}</span>
+          <strong class="streak-entry-value" [attr.data-accent]="entry.accent">{{ entry.value }}</strong>
+        </article>
+      </div>
+    </section>
+  </div>
 </ion-content>

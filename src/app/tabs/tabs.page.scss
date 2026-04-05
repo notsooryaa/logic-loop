@@ -1,20 +1,51 @@
 :host {
-	--tab-shell: #7378bf;
-	--tab-ink: rgba(255, 247, 232, 0.78);
-	--tab-ink-active: #fef7ea;
-	--tab-indicator: rgba(103, 122, 17, 0.96);
+	--tab-shell-top: #7e83cb;
+	--tab-shell-bottom: #656bb5;
+	--tab-ink: rgba(255, 247, 232, 0.72);
+	--tab-ink-active: #fff8ee;
+	--tab-indicator-start: #8aa01d;
+	--tab-indicator-end: #657b10;
+	--tab-shadow: 0 -16px 32px rgba(66, 58, 122, 0.2);
+	--tab-shell-shadow: 0 18px 30px rgba(58, 52, 111, 0.26);
 }
 
 ion-tab-bar {
 	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 76px;
-	padding: 0 24px calc(6px + var(--ion-safe-area-bottom, 0px));
+	left: 18px;
+	right: 18px;
+	bottom: calc(12px + var(--ion-safe-area-bottom, 0px));
+	height: 82px;
+	padding: 0 18px;
 	border-top: 0;
-	background: var(--tab-shell);
-	box-shadow: 0 -10px 24px rgba(70, 63, 125, 0.18);
+	border-radius: 28px;
+	background: linear-gradient(180deg, var(--tab-shell-top) 0%, var(--tab-shell-bottom) 100%);
+	box-shadow: var(--tab-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.26);
+	overflow: visible;
+	animation: tab-bar-rise 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+ion-tab-bar::before,
+ion-tab-bar::after {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+}
+
+ion-tab-bar::before {
+	inset: 1px;
+	border-radius: 27px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04));
+	opacity: 0.9;
+}
+
+ion-tab-bar::after {
+	left: 50%;
+	top: -18px;
+	width: 132px;
+	height: 42px;
+	border-radius: 999px;
+	background: radial-gradient(circle, rgba(255, 244, 220, 0.26) 0%, rgba(255, 244, 220, 0) 72%);
+	transform: translateX(-50%);
 }
 
 ion-tab-button {
@@ -22,48 +53,206 @@ ion-tab-button {
 	--color: var(--tab-ink);
 	--color-selected: var(--tab-ink-active);
 	position: relative;
-	min-height: 76px;
+	z-index: 1;
+	min-height: 82px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 4px;
-	padding-top: 6px;
-	padding-bottom: 6px;
-	font-size: 0.74rem;
-	font-weight: 700;
+	gap: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 0.72rem;
+	font-weight: 800;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+	transition: transform 180ms ease, color 180ms ease, opacity 180ms ease;
+	animation: tab-button-fade 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+ion-tab-button:nth-child(1) {
+	animation-delay: 60ms;
+}
+
+ion-tab-button:nth-child(2) {
+	animation-delay: 130ms;
+}
+
+ion-tab-button:nth-child(3) {
+	animation-delay: 200ms;
+}
 
 .tab-icon-shell {
+	position: relative;
 	display: grid;
 	place-items: center;
-	width: 40px;
-	height: 40px;
+	width: 44px;
+	height: 44px;
 	border-radius: 50%;
-	transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease, color 160ms ease;
+	background: rgba(255, 255, 255, 0.04);
+	transition: background-color 180ms ease, transform 180ms ease, box-shadow 220ms ease, color 180ms ease;
+}
+
+.tab-icon-shell::before,
+.tab-icon-shell::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	opacity: 0;
+	transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.tab-icon-shell::before {
+	background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 68%);
+}
+
+.tab-icon-shell::after {
+	inset: -6px;
+	border: 1px solid rgba(255, 248, 238, 0.22);
+	transform: scale(0.86);
 }
 
 ion-tab-button ion-icon {
-	font-size: 1.28rem;
+	position: relative;
+	font-size: 1.24rem;
+	transition: transform 180ms ease, filter 180ms ease;
 }
 
 ion-tab-button ion-label {
 	margin-top: 0;
-	font-size: 0.72rem;
+	font-size: 0.68rem;
 	line-height: 1;
+	opacity: 0.92;
+	transform: translateY(0);
+	transition: opacity 180ms ease, transform 180ms ease, letter-spacing 180ms ease;
 }
 
 ion-tab-button.tab-selected {
 	color: var(--tab-ink-active);
+	transform: translateY(-8px);
 }
 
 ion-tab-button.tab-selected .tab-icon-shell {
-	background: var(--tab-indicator);
+	background: linear-gradient(180deg, var(--tab-indicator-start) 0%, var(--tab-indicator-end) 100%);
 	color: #fff6de;
-	box-shadow: 0 10px 18px rgba(61, 70, 13, 0.28);
-	transform: translateY(-2px);
+	box-shadow: 0 14px 26px rgba(74, 86, 17, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+	transform: translateY(-2px) scale(1.08);
+}
+
+ion-tab-button.tab-selected .tab-icon-shell::before,
+ion-tab-button.tab-selected .tab-icon-shell::after {
+	opacity: 1;
+}
+
+ion-tab-button.tab-selected .tab-icon-shell::after {
+	animation: tab-selected-pulse 2.2s ease-in-out infinite;
+}
+
+ion-tab-button.tab-selected ion-icon {
+	transform: translateY(-1px);
+	filter: drop-shadow(0 4px 8px rgba(48, 56, 9, 0.3));
+	animation: tab-icon-bob 2s ease-in-out infinite;
+}
+
+ion-tab-button.tab-selected ion-label {
+	opacity: 1;
+	transform: translateY(1px);
+	letter-spacing: 0.12em;
+}
+
+ion-tab-button:not(.tab-selected) {
+	opacity: 0.92;
+}
+
+ion-tab-button:not(.tab-selected) .tab-icon-shell:hover {
+	transform: translateY(-1px);
+}
+
+ion-tab-button:not(.tab-selected) ion-label {
+	opacity: 0.78;
+}
+
+@keyframes tab-bar-rise {
+	from {
+		opacity: 0;
+		transform: translateY(18px) scale(0.96);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes tab-button-fade {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes tab-selected-pulse {
+	0%,
+	100% {
+		opacity: 0.72;
+		transform: scale(0.88);
+	}
+	50% {
+		opacity: 0;
+		transform: scale(1.16);
+	}
+}
+
+@keyframes tab-icon-bob {
+	0%,
+	100% {
+		transform: translateY(-1px);
+	}
+	50% {
+		transform: translateY(-3px);
+	}
+}
+
+@media (max-width: 420px) {
+	ion-tab-bar {
+		left: 12px;
+		right: 12px;
+		padding-inline: 12px;
+	}
+
+	ion-tab-button {
+		font-size: 0.68rem;
+	}
+
+	.tab-icon-shell {
+		width: 42px;
+		height: 42px;
+	}
+
+	ion-tab-button ion-label {
+		font-size: 0.64rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	ion-tab-bar,
+	ion-tab-button,
+	ion-tab-button.tab-selected .tab-icon-shell::after,
+	ion-tab-button.tab-selected ion-icon {
+		animation: none;
+	}
+
+	ion-tab-button,
+	.tab-icon-shell,
+	.tab-icon-shell::before,
+	.tab-icon-shell::after,
+	ion-tab-button ion-icon,
+	ion-tab-button ion-label {
+		transition: none;
+	}
 }
 
