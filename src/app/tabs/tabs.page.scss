@@ -31,23 +31,6 @@ ion-tab-bar::after {
 	pointer-events: none;
 }
 
-ion-tab-bar::before {
-	inset: 1px;
-	border-radius: 27px;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04));
-	opacity: 0.9;
-}
-
-ion-tab-bar::after {
-	left: 50%;
-	top: -18px;
-	width: 132px;
-	height: 42px;
-	border-radius: 999px;
-	background: radial-gradient(circle, rgba(255, 244, 220, 0.26) 0%, rgba(255, 244, 220, 0) 72%);
-	transform: translateX(-50%);
-}
-
 ion-tab-button {
 	--background: transparent;
 	--color: var(--tab-ink);
@@ -86,8 +69,8 @@ ion-tab-button:nth-child(3) {
 	position: relative;
 	display: grid;
 	place-items: center;
-	width: 44px;
-	height: 44px;
+	width: 35px;
+	height: 35px;
 	border-radius: 50%;
 	background: rgba(255, 255, 255, 0.04);
 	transition: background-color 180ms ease, transform 180ms ease, box-shadow 220ms ease, color 180ms ease;
@@ -115,12 +98,12 @@ ion-tab-button:nth-child(3) {
 
 ion-tab-button ion-icon {
 	position: relative;
-	font-size: 1.24rem;
+	font-size: 1rem;
 	transition: transform 180ms ease, filter 180ms ease;
 }
 
 ion-tab-button ion-label {
-	margin-top: 0;
+	margin-top: 6px;
 	font-size: 0.68rem;
 	line-height: 1;
 	opacity: 0.92;
@@ -229,8 +212,13 @@ ion-tab-button:not(.tab-selected) ion-label {
 	}
 
 	.tab-icon-shell {
-		width: 42px;
-		height: 42px;
+		width: 35px;
+		height: 35px;
+	}
+
+	ion-tab-button ion-icon {
+		font-size: 1.0rem;
+		height: 30px;
 	}
 
 	ion-tab-button ion-label {
