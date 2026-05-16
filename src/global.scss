@@ -418,6 +418,38 @@ app-tab2 .sr-only {
 	}
 }
 
+/* ── Expert Insight Modal Sheet ── */
+.expert-insight-modal {
+	--border-radius: 32px 32px 0 0;
+	--background: transparent;
+}
+
+.expert-insight-modal .modal-wrapper {
+	border-radius: 32px 32px 0 0;
+	overflow: hidden;
+}
+
+.expert-insight-modal ion-modal {
+	--border-radius: 32px 32px 0 0;
+}
+
+/* Handle bar above the sheet */
+.expert-insight-modal::part(handle) {
+	background: rgba(133, 102, 43, 0.28);
+	width: 40px;
+	height: 4px;
+	border-radius: 999px;
+	margin-top: 10px;
+}
+
+/* Soft warm backdrop */
+.expert-insight-modal::part(backdrop) {
+	background: rgba(45, 30, 10, 0.38);
+	backdrop-filter: blur(3px);
+}
+
+
+
 app-tab3 {
 	--page-background: #f5e8cf;
 	--surface: rgba(255, 250, 241, 0.9);
@@ -429,6 +461,7 @@ app-tab3 {
 	--brand-red: #cb2d38;
 	--brand-green: #6a7c14;
 }
+
 
 app-tab3 .profile-content {
 	--background: linear-gradient(180deg, #f8edd8 0%, #f4e7d0 58%, #efe1c6 100%);

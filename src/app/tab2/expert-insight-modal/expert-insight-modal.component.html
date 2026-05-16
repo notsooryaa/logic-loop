@@ -1,0 +1,74 @@
+<ion-header class="modal-header" [translucent]="false">
+  <ion-toolbar class="modal-toolbar">
+    <ion-buttons slot="end">
+      <button class="modal-close-btn" (click)="dismiss()" aria-label="Close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title class="modal-title-text">Expert Insight</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="modal-content" [scrollY]="true">
+  <div class="modal-shell">
+
+    <!-- Riddle recap card -->
+    <div class="recap-card">
+      <div class="recap-topline">
+        <span class="difficulty-pill">{{ riddle.difficulty }}</span>
+        <span class="recap-volume">{{ riddle.title }}</span>
+      </div>
+      <p class="recap-riddle">{{ riddle.text }}</p>
+      <div class="answer-reveal">
+        <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
+        <span>Answer: <strong>{{ riddle.answer }}</strong></span>
+      </div>
+    </div>
+
+    <!-- Section label -->
+    <p class="section-label">HOW EXPERTS SOLVED IT</p>
+
+    <!-- Expert cards -->
+    <div class="expert-list">
+      <article
+        class="expert-card"
+        *ngFor="let expert of experts; let i = index"
+        [style.--card-delay]="(i * 80) + 'ms'"
+      >
+        <div class="expert-header">
+          <div
+            class="expert-avatar"
+            [style.background]="expert.bg"
+            [style.color]="expert.color"
+          >
+            {{ expert.initials }}
+          </div>
+          <div class="expert-meta">
+            <strong class="expert-name">{{ expert.name }}</strong>
+            <span class="expert-rank">{{ expert.rank }}</span>
+          </div>
+          <div class="expert-time-badge">
+            <ion-icon name="timer-outline" aria-hidden="true"></ion-icon>
+            {{ expert.time }}
+          </div>
+        </div>
+
+        <p class="expert-approach">{{ expert.approach }}</p>
+
+        <ul class="expert-steps">
+          <li *ngFor="let step of expert.steps; let j = index">
+            <span class="step-num" [style.color]="expert.color">{{ j + 1 }}</span>
+            {{ step }}
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Bottom quote -->
+    <div class="modal-quote">
+      <ion-icon name="bulb-outline" aria-hidden="true"></ion-icon>
+      <p>"Every great solver sees what others overlook."</p>
+    </div>
+
+  </div>
+</ion-content>
